@@ -1,5 +1,7 @@
 package com.example.mySpringProject.controller;
 
+import Repositories.pilotRepository
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,8 +21,8 @@ import java.util.Date;
 public class pilotController {
     private final pilotRepository pilotRepository;
 
-    public SuperHeroController(pilotRepository pilotRepository) {
-      this.pilotRepository = pilotRepository;
+    public pilotController(pilotRepository pilotRepository) {
+        this.pilotRepository = pilotRepository;
 
     }
 
