@@ -1,7 +1,5 @@
 package com.example.mySpringProject.controller;
 
-import Repositories.pilotRepository
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,9 +25,9 @@ public class pilotController {
     }
 
     @GetMapping()
-    public Iterable<pilot> getPilots() {
+    public Iterable<pilot> getAllPilots() {
         Iterable<pilot> pilots = pilotRepository.findAll();
-        return pilots;
+        return this.pilotRepository.findall();
     }
 
     @PostMapping(path = "/addNew")
@@ -38,11 +36,9 @@ public class pilotController {
         return "New Pilot successfully added!";
     }
 
-}
-
     @GetMapping(path = "/{id}")
-    public Iterable<pilot> getPilotById(@PathVariable String id) {
-        Iterable<pilot> the_pilot = pilotRepository.findById(id);
-        return the_pilot;
+    public Optional<pilot> getPilotById(@PathVariable("id") Integer id) {
+
+        return this.pilotRepository.findById(id);
     }
 }
